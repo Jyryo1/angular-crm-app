@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PagePrestationsComponent } from './pages/page-prestations/page-prestations.component';
 
 const modRoutes: Routes = [
-  { path: 'prestations', component: PagePrestationsComponent }
+  { path: '', component: PagePrestationsComponent }
 ];
 
 @NgModule({
