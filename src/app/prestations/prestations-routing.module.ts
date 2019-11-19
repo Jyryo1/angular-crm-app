@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
+import { PagePrestationsComponent } from './pages/page-prestations/page-prestations.component';
 
-
+const modRoutes: Routes = [
+  { path: 'prestations', component: PagePrestationsComponent }
+];
 
 @NgModule({
   imports: [
-    CommonModule
+    RouterModule.forChild(modRoutes)
   ]
 })
 export class PrestationsRoutingModule { }
