@@ -2,13 +2,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">Type</th>
-        <th scope="col">Client</th>
-        <th scope="col">Nb Jours</th>
-        <th scope="col">Tjm HT</th>
-        <th scope="col">Total HT</th>
-        <th scope="col">Total TTC</th>
-        <th scope="col">State</th>
+        <th scope="col" *ngFor="let header of headers">{{ header }}</th>
       </tr>
     </thead>
     <tbody>

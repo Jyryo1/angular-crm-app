@@ -9,10 +9,21 @@ import { Prestation } from 'src/app/shared/models/prestation';
 })
 export class PagePrestationsComponent implements OnInit {
   public collection: Prestation[];
+  public headers: string[];
 
   constructor(private prestationsService: PrestationsService) { }
 
+  // WARNING : DO NOT USE FUNCTION CALLS INSIDE HTML !!!
   ngOnInit() {
+    this.headers = [
+      'Type',
+      'Client',
+      'Nb Jours',
+      'Tjm HT',
+      'Total HT',
+      'Total TTC',
+      'State'
+    ];
     this.collection = this.prestationsService.collection;
   }
 
