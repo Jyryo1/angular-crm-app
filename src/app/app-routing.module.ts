@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, Router } from '@angular/router';
-import { PageLoginComponent } from './login/pages/page-login/page-login.component';
 
 const appRoutes: Routes = [
-  { path: 'login', component: PageLoginComponent },
   { path: '',
     redirectTo: '/login',
     pathMatch: 'full'
@@ -19,7 +17,9 @@ const appRoutes: Routes = [
       { enableTracing: false }
     )
   ],
-  exports: [RouterModule]
+  exports: [
+    RouterModule
+  ]
 })
 export class AppRoutingModule {
   // Diagnostic only: inspect router configuration
