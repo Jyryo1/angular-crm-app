@@ -13,7 +13,6 @@ export class PagePrestationsComponent implements OnInit {
 
   constructor(private prestationsService: PrestationsService) { }
 
-  // WARNING : DO NOT USE FUNCTION CALLS INSIDE HTML !!!
   ngOnInit() {
     this.headers = [
       'Type',
