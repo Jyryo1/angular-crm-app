@@ -27,11 +27,11 @@ export class PagePrestationsComponent implements OnInit {
       'State'
     ];
     this.collection = this.prestationsService.collection;
-    //console.log('DEBUG', this.collection);
+    // console.log('DEBUG', this.collection);
   }
 
   public updateState(item: PrestationI, event) {
-    //console.log('DEBUG', item, event);
+    // console.log('DEBUG', item, event);
     this.prestationsService.update(item, event.target.value);
   }
 
