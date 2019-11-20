@@ -21,10 +21,12 @@ export class Prestation implements PrestationI {
   }
 
   totalHt(): number {
+    console.log('Total HT');
     return this.nbJours * this.tjmHt;
   }
 
   totalTtc(tva?: number): number {
+    console.log('Total TTC');
     if (tva) {
       if (tva <= 0) {
         return this.totalHt();
