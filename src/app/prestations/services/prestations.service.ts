@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Prestation } from 'src/app/shared/models/prestation';
 import { fakePrestations } from './mock-prestations';
 import { PrestationI } from 'src/app/shared/interfaces/prestation-i';
+import { State } from 'src/app/shared/enums/state.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +22,11 @@ export class PrestationsService {
 
   public set collection(collection: PrestationI[]) {
     this.pCollection = collection;
+  }
+
+  public update(item: PrestationI, state: State) {
+    console.log('DEBUG', item);
+    item.state = state;
+    console.log('DEBUG', item);
   }
 }
