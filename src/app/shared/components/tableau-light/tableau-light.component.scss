@@ -13,3 +13,8 @@
     background: $color-success;
   }
 }
+
+app-template-b #table-light thead {
+  background: $dark-color;
+  color: $light-color;
+}
