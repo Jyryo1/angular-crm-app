@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Prestation } from 'src/app/shared/models/prestation';
+import { State } from 'src/app/shared/enums/state.enum';
 
 @Component({
   selector: 'app-form-presta',
@@ -6,10 +9,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form-presta.component.scss']
 })
 export class FormPrestaComponent implements OnInit {
+  public form: FormGroup;
+  public init = new Prestation();
+  public states = State;
 
-  constructor() { }
+  constructor(
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit() {
+    this.createForm();
   }
 
+  private createForm() {
+    this.form = this.fb.group({
+      typePresta: [this.init.typePresta],
+      client: [this.init.client],
+      nbJours: [this.init.nbJours],
+      tjmHt: [this.init.tjmHt],
+      tauxTva: [this.init.tauxTva],
+      state: [this.init.state],
+      comment: [this.init.comment]
+    });
+  }
+
+  private onSubmit() {
+    console.log(this.form.value);
+  }
 }

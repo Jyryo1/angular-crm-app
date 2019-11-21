@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
+import { FormPrestaComponent } from './components/form-presta/form-presta.component';
+import { PageAddPrestationComponent } from './pages/page-add-prestation/page-add-prestation.component';
 import { PagePrestationsComponent } from './pages/page-prestations/page-prestations.component';
 import { PrestationsRoutingModule } from './prestations-routing.module';
-import { SharedModule } from '../shared/shared.module';
-import { PageAddPrestationComponent } from './pages/page-add-prestation/page-add-prestation.component';
-import { FormPrestaComponent } from './components/form-presta/form-presta.component';
-
 
 
 @NgModule({
@@ -13,7 +13,8 @@ import { FormPrestaComponent } from './components/form-presta/form-presta.compon
   imports: [
     CommonModule,
     PrestationsRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class PrestationsModule { }

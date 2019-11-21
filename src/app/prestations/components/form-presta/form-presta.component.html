@@ -1,16 +1,40 @@
-<form>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <label for="typePresta">Type Prestation</label>
+    <input type="text" class="form-control" id="typePresta" formControlName="typePresta">
   </div>
+
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <label for="client">Client</label>
+    <input type="text" class="form-control" id="client" formControlName="client">
   </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+
+  <div class="form-group">
+    <label for="nbJours">nb Jours</label>
+    <input type="number" class="form-control" id="nbJours" formControlName="nbJours">
   </div>
+
+  <div class="form-group">
+    <label for="tjmHt">TJM HT</label>
+    <input type="number" class="form-control" id="tjmHt" formControlName="tjmHt">
+  </div>
+
+  <div class="form-group">
+    <label for="tauxTva">Taux TVA</label>
+    <input type="number" class="form-control" id="tauxTva" formControlName="tauxTva">
+  </div>
+
+  <div class="form-group">
+    <label for="state">State</label>
+    <select id="state" class="form-control" formControlName="state">
+        <option *ngFor="let state of states | keyvalue" [value]="state.value">{{ state.value }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea class="form-control" id="comment" formControlName="comment"></textarea>
+  </div>
+
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
