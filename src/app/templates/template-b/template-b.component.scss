@@ -1,0 +1,18 @@
+@import 'theme';
+
+div {
+  padding: 2rem;
+  background: $color2;
+  text-align: center;
+
+  h1 {
+    font-size: 2rem;
+    color: $light-color;
+    margin: 0;
+  }
+
+  p {
+    color: $light-color;
+    margin-bottom: 0;
+  }
+}
