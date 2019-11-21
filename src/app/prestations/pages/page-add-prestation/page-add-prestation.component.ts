@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-page-add-prestation',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageAddPrestationComponent implements OnInit {
 
-  constructor() { }
+  public title: string;
+  public subtitle: string;
+
+  constructor(
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.data.subscribe(
+      (data) => {
+        this.title = data.title;
+        this.subtitle = data.subtitle;
+      }
+    );
   }
 
 }
