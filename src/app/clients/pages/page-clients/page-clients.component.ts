@@ -14,10 +14,15 @@ export class PageClientsComponent implements OnInit {
   public headers: string[];
   public collection: Client[];
   public states = ClientState;
+  public title: string;
+  public subtitle: string;
 
   constructor(private clientsService: ClientsService) {}
 
   ngOnInit() {
+    this.title = 'Clients';
+    this.subtitle = 'Tous les clients';
+
     this.headers = [
       'Nom',
       'Email',

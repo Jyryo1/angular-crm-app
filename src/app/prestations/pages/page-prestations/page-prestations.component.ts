@@ -13,10 +13,14 @@ export class PagePrestationsComponent implements OnInit {
   public collection: Prestation[];
   public headers: string[];
   public states = State;
+  public title: string;
+  public subtitle: string;
 
   constructor(private prestationsService: PrestationsService) { }
 
   ngOnInit() {
+    this.title = 'Prestations';
+    this.subtitle = 'Toutes les prestas';
     this.headers = [
       'Type',
       'Client',
