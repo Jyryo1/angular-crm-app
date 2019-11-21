@@ -29,4 +29,10 @@ export class PrestationsService {
     item.state = state;
     console.log('DEBUG', item);
   }
+
+  public add(item: Prestation) {
+    console.log('add item into collection');
+    this.collection.push(item);
+    console.log(this.collection);
+  }
 }

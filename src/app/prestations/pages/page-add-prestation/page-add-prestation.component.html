@@ -1,6 +1,6 @@
 <app-template-a [title]="title" [subtitle]="subtitle">
 
   <div class="container pt-3 pb-3">
-    <app-form-presta></app-form-presta>
+    <app-form-presta (data)="add($event)"></app-form-presta>
   </div>
 </app-template-a>
