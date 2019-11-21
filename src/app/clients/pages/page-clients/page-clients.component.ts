@@ -3,6 +3,7 @@ import { ClientsService } from '../../services/clients.service';
 import { Client } from 'src/app/shared/models/client';
 import { ClientState } from 'src/app/shared/enums/client-state.enum';
 import { ClientI } from 'src/app/shared/interfaces/client-i';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-page-clients',
@@ -20,11 +21,21 @@ export class PageClientsComponent implements OnInit {
   public addBtnRoute: string;
   public addBtnFragment: string;
 
-  constructor(private clientsService: ClientsService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private clientsService: ClientsService
+  ) { }
 
   ngOnInit() {
-    this.title = 'Clients';
-    this.subtitle = 'Tous les clients';
+    this.route.data.subscribe(
+      (data) => {
+        this.title = data.title;
+        this.subtitle = data.subtitle;
+      }
+    );
+
+    // this.title = 'Clients';
+    // this.subtitle = 'Tous les clients';
 
     this.headers = [
       'Nom',

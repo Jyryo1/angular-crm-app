@@ -3,6 +3,7 @@ import { PrestationsService } from '../../services/prestations.service';
 import { Prestation } from 'src/app/shared/models/prestation';
 import { State } from 'src/app/shared/enums/state.enum';
 import { PrestationI } from 'src/app/shared/interfaces/prestation-i';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-page-prestations',
@@ -19,11 +20,21 @@ export class PagePrestationsComponent implements OnInit {
   public addBtnRoute: string;
   public addBtnFragment: string;
 
-  constructor(private prestationsService: PrestationsService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private prestationsService: PrestationsService
+  ) { }
 
   ngOnInit() {
-    this.title = 'Prestations';
-    this.subtitle = 'Toutes les prestas';
+    this.route.data.subscribe(
+      (data) => {
+        this.title = data.title;
+        this.subtitle = data.subtitle;
+      }
+    );
+
+    // this.title = 'Prestations';
+    // this.subtitle = 'Toutes les prestas';
     this.headers = [
       'Type',
       'Client',
