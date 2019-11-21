@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Prestation } from 'src/app/shared/models/prestation';
 import { State } from 'src/app/shared/enums/state.enum';
 
@@ -24,8 +24,17 @@ export class FormPrestaComponent implements OnInit {
 
   private createForm() {
     this.form = this.fb.group({
-      typePresta: [this.init.typePresta],
-      client: [this.init.client],
+      typePresta: [
+        this.init.typePresta,
+        Validators.required
+      ],
+      client: [
+        this.init.client,
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(2)
+        ])
+      ],
       nbJours: [this.init.nbJours],
       tjmHt: [this.init.tjmHt],
       tauxTva: [this.init.tauxTva],
