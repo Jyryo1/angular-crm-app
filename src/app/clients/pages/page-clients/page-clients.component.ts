@@ -16,6 +16,9 @@ export class PageClientsComponent implements OnInit {
   public states = ClientState;
   public title: string;
   public subtitle: string;
+  public addBtnText: string;
+  public addBtnRoute: string;
+  public addBtnFragment: string;
 
   constructor(private clientsService: ClientsService) {}
 
@@ -28,6 +31,11 @@ export class PageClientsComponent implements OnInit {
       'Email',
       'State'
     ];
+
+    this.addBtnText = 'Ajouter Client';
+    // this.addBtnRoute = './';
+    this.addBtnRoute = 'new';
+    this.addBtnFragment = 'new';
 
     this.collection = this.clientsService.collection;
   }

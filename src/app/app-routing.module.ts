@@ -15,7 +15,7 @@ const appRoutes: Routes = [
   imports: [RouterModule.forRoot(
       appRoutes,
       {
-        enableTracing: false,
+        enableTracing: true,
         preloadingStrategy: PreloadAllModules
       }
     )

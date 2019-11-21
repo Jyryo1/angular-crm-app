@@ -15,6 +15,9 @@ export class PagePrestationsComponent implements OnInit {
   public states = State;
   public title: string;
   public subtitle: string;
+  public addBtnText: string;
+  public addBtnRoute: string;
+  public addBtnFragment: string;
 
   constructor(private prestationsService: PrestationsService) { }
 
@@ -30,6 +33,11 @@ export class PagePrestationsComponent implements OnInit {
       'Total TTC',
       'State'
     ];
+    this.addBtnText = 'Ajouter Presta';
+    // this.addBtnRoute = './';
+    this.addBtnRoute = 'new';
+    // this.addBtnFragment = 'new';
+
     this.collection = this.prestationsService.collection;
     // console.log('DEBUG', this.collection);
   }
