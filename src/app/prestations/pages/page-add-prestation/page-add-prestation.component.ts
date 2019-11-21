@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PrestationsService } from '../../services/prestations.service';
 import { Prestation } from 'src/app/shared/models/prestation';
 
@@ -15,6 +15,7 @@ export class PageAddPrestationComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private prestationsService: PrestationsService) { }
 
   ngOnInit() {
@@ -28,6 +29,8 @@ export class PageAddPrestationComponent implements OnInit {
 
   private add(item) {
     this.prestationsService.add(new Prestation(item));
+    this.router.navigate(['prestations']); // navigate with full path
+    this.router.navigate(['../'], {relativeTo: this.route}); // navigate relative to the current route
   }
 
 }
