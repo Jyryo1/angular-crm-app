@@ -1,38 +1,52 @@
 import { Injectable } from '@angular/core';
-import { Prestation } from 'src/app/shared/models/prestation';
-import { fakePrestations } from './mock-prestations';
 import { PrestationI } from 'src/app/shared/interfaces/prestation-i';
 import { State } from 'src/app/shared/enums/state.enum';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { map } from 'rxjs/operators';
+import { Prestation } from 'src/app/shared/models/prestation';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PrestationsService {
-  private pCollection: PrestationI[];
+  private apiUrl = environment.apiUrl;
+  private pCollection: Observable<any>;
 
-  constructor() {
+  constructor(
+    private http: HttpClient
+  ) {
     // automatically use getter/setter (cf. magic keywords)
-    this.collection = fakePrestations;
+    // use pipe() to transform data
+    this.collection = this.http.get<any[]>(`${this.apiUrl}/prestations`).pipe(
+      // short version
+      map(tab => tab.map(obj => new Prestation(obj)))
+      // long version
+      /* map(
+        (data) => {
+          return data.map(
+            (obj) => {
+              return new Prestation(obj);
+            }
+          );
+        }
+      ) */
+    );
   }
 
   // magic keywords get/set create a fake property to use : collection.
-  public get collection(): PrestationI[] {
+  public get collection(): Observable<any[]> {
     return this.pCollection;
   }
 
-  public set collection(collection: PrestationI[]) {
+  public set collection(collection: Observable<any[]>) {
     this.pCollection = collection;
   }
 
   public update(item: PrestationI, state: State) {
-    console.log('DEBUG', item);
-    item.state = state;
-    console.log('DEBUG', item);
   }
 
-  public add(item: Prestation) {
-    console.log('add item into collection');
-    this.collection.push(item);
-    console.log(this.collection);
+  public add(item: PrestationI) {
   }
 }

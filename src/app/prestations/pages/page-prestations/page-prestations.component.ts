@@ -49,7 +49,16 @@ export class PagePrestationsComponent implements OnInit {
     this.addBtnRoute = 'new';
     // this.addBtnFragment = 'new';
 
-    this.collection = this.prestationsService.collection;
+    // this.collection = this.prestationsService.collection;
+    this.prestationsService.collection.subscribe(
+      (data) => {
+        this.collection = data;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+
     // console.log('DEBUG', this.collection);
   }
 
