@@ -30,7 +30,7 @@ export class PageAddPrestationComponent implements OnInit {
   private add(item) {
     this.prestationsService.add(new Prestation(item));
     this.router.navigate(['prestations']); // navigate with full path
-    this.router.navigate(['../'], {relativeTo: this.route}); // navigate relative to the current route
+    // this.router.navigate(['../'], {relativeTo: this.route}); // navigate relative to the current route
   }
 
 }
